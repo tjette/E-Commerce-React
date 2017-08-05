@@ -40,8 +40,8 @@ class ProductsContainer extends React.Component {
         ? <Products productsData={this.state.products}  />
         :
         <div>
-        <span className="sr-only">Loading Products...</span>
-        <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+
+        <i className="fa fa-refresh fa-spin fa-3x fa-fw loadingProducts"></i><h3 className="loadingProducts">Loading Products ...</h3>
 
         </div>
       }
