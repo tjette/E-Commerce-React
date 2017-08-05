@@ -15,6 +15,7 @@ class ProductsContainer extends React.Component {
   }
 
   getProducts = () => {
+
     const productsArray = [];
 
     for(var i=0; i<20; i++) {
@@ -24,15 +25,24 @@ class ProductsContainer extends React.Component {
         description: faker.lorem.sentence(),
       })
     }
-    this.setState({products:productsArray})
+    setTimeout(() => {
+
+    this.setState({products: productsArray})
+  }, 3000)
+
   }
   render(){
     return (
       <div>
       {
+
         this.state.products
         ? <Products productsData={this.state.products}  />
-        : <h1>Products being loaded</h1>
+        :
+        <div>
+        <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+          <span className="sr-only">Loading Products...</span>
+        </div>
       }
 
       </div>
