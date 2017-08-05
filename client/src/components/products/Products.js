@@ -2,7 +2,7 @@ import React from 'react';
 
 const Products = (props) => {
   return(
-    <div>
+    <div className="productsContainer">
         {
           props.productsData.map((product) => {
             return(

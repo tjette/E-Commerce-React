@@ -33,17 +33,16 @@ class ProductsContainer extends React.Component {
   }
   render(){
     return (
-      <div>
+      <div className="">
       {
 
         this.state.products
         ? <Products productsData={this.state.products}  />
         :
         <div>
-
-        <i className="fa fa-refresh fa-spin fa-3x fa-fw loadingProducts"></i><h3 className="loadingProducts">Loading Products ...</h3>
-
+          <i className="fa fa-refresh fa-spin fa-3x fa-fw loadingProducts"></i><h3 className="loadingProducts">Loading Products ...</h3>
         </div>
+
       }
 
       </div>
