@@ -20,5 +20,41 @@
     flex-wrap: wrap;
     display: flex;
     width: 33%;
+    margin: 10px 10px;
+}
 
+.productsCard:hover {
+    background-color: beige;
+    background-position: 100% 100%;
+    animation: up-bump 0.4s ease;
+}
+
+@keyframes up-bump {
+  0% { padding-top: 2em; }
+  50% { padding-top: 1.5em; }
+  100% { padding-top: 2em; }
+}
+@keyframes down-bump {
+  0% { padding-top: 2em; }
+  50% { padding-top: 2.5em; }
+  100% { padding-top: 2em; }
+}
+
+img.productImage {
+    width: 300px;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navBar li {
+  list-style: none;
+  font-size: 24px;
+}
+
+.nav {
+    margin: 10px 10px;
+    padding: 10px 0px;
 }
