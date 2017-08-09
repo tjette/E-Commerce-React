@@ -22,8 +22,10 @@ const NavBar = (props) => {
         <li><Link to="/my-shop-page">Shop</Link></li>
         <li><Link to="products">Products</Link></li>
         <li><h1> {props.cartCount} </h1> </li>
-        </ul>
+      </ul>
+      <div><button className="emptyCart pull-right" onClick={() => props.emptyCart(props.cartCount) }>Empty Cart</button></div>
       </nav>
+
     </div>
   )
 }

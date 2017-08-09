@@ -14,14 +14,14 @@ class Layout extends Component {
     return (
 
       <div>
-        <NavBar cartCount = {this.props.cart.length}/>
+        <NavBar emptyCart={this.props.emptyCart} cartCount = {this.props.cart.length}/>
 
               <div>
               <Switch>
               <Route exact path="/" component={HomeContainer}/>
               <Route path ='/my-about-page' component={AboutContainer}/>
               <Route path="/my-shop-page" component={ShopContainer}/>
-              <Route path='/products' render={() => <Products products={this.props.products} addItem={this.props.addItem} /> }/>
+              <Route path='/products' render={() => <Products products={this.props.products}  addItem={this.props.addItem} /> }/>
               </Switch>
             </div>
 

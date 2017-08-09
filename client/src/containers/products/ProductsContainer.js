@@ -28,6 +28,13 @@ class ProductsContainer extends React.Component {
 
   }
 
+  emptyCart = () => {
+    const cartItems = this.state.cart;
+    cartItems.splice(0,cartItems.length);
+    this.setState({cart: cartItems});
+    console.log(cartItems, cartItems.length);
+  }
+
 
 
 
@@ -62,10 +69,8 @@ class ProductsContainer extends React.Component {
   render(){
     return (
       <div className="">
-            <Layout products={this.state.products} addItem={this.addItem} cart={this.state.cart}/>
-            {
-              this.addItem === "true" ? <p>Added This Item</p> : <p>Item not added</p>
-            }
+            <Layout products={this.state.products} emptyCart={this.emptyCart} addItem={this.addItem} cart={this.state.cart}/>
+
       </div>
     )
   }

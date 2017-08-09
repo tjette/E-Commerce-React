@@ -55,3 +55,7 @@ img.productImage {
     margin: 10px 10px;
     padding: 10px 0px;
 }
+
+.emptyCart {
+    margin: -40px 80px;
+}
