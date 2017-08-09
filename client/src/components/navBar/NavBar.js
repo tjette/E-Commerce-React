@@ -3,14 +3,14 @@ import {Link} from 'react-router-dom';
 
 const styles = {
   active: {
-    backgroundColor: "red"
+    backgroundColor: "#114B51"
   },
   inActive: {
     backgroundColor: "blue"
   }
 }
 
-const NavBar = () => {
+const NavBar = (props) => {
   const inActive = true;
   return (
     <div>
@@ -21,6 +21,7 @@ const NavBar = () => {
         <li><Link to="/my-about-page">About</Link></li>
         <li><Link to="/my-shop-page">Shop</Link></li>
         <li><Link to="products">Products</Link></li>
+        <li><h1> {props.cartCount} </h1> </li>
         </ul>
       </nav>
     </div>

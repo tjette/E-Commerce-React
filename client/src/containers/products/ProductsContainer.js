@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../../Layout'
 import {Products, ProductSearch} from '../../components'
 
 import faker from 'faker';
@@ -12,14 +13,23 @@ class ProductsContainer extends React.Component {
     img: undefined,
     price: undefined,
     description: undefined,
-    products: undefined,
-    buy: undefined,
-    categories: undefined
+    products: [],
+    categories: undefined,
+    cart: []
   }
 
-  buyProduct= (productId) => {
-    this.setState({buy: productId})
+  // buyProduct= this.buyProduct.bind(this);
+
+  addItem = (product) => {
+    const tempCart = this.state.cart;
+    tempCart.push(product);
+    this.setState({cart: tempCart});
+    alert(`${product.productName} was added to your cart`)
+
   }
+
+
+
 
   onCategorySelected = (event) => this.setState({selectedCategory: event.target.value})
 
@@ -37,7 +47,7 @@ class ProductsContainer extends React.Component {
     for(var i=0; i<20; i++) {
       productsArray.push({
         productName: faker.commerce.productName(),
-        img: faker.image.technics(),
+        img: faker.random.image(),
         price: faker.commerce.price(),
         description: faker.lorem.sentence()
 
@@ -52,28 +62,35 @@ class ProductsContainer extends React.Component {
   render(){
     return (
       <div className="">
-      {
-        this.state.categories
-        ? <ProductSearch onCategorySelected={this.onCategorySelected}
-                     categories={this.state.categories}
-      /> :
-      <h3>Loading Categories</h3>
-      }
-
-      {
-
-        this.state.products
-        ? <Products productsData={this.state.products}/>
-        :
-        <div>
-          <i className="fa fa-refresh fa-spin fa-3x fa-fw loadingProducts"></i><h3 className="loadingProducts">Loading Products ...</h3>
-        </div>
-
-      }
-
+            <Layout products={this.state.products} addItem={this.addItem} cart={this.state.cart}/>
+            {
+              this.addItem === "true" ? <p>Added This Item</p> : <p>Item not added</p>
+            }
       </div>
     )
   }
 }
 
 export default ProductsContainer;
+
+// {
+//   this.state.categories
+//   ? <ProductSearch onCategorySelected={this.onCategorySelected}
+//                categories={this.state.categories}
+// /> :
+// <h3>Loading Categories</h3>
+// }
+//
+// {
+//
+//   this.state.products
+//   ? <Products products={this.state.products}
+//               addItem = {this.addToCart}
+//               cart = {this.state.cart}
+//   />
+//   :
+//   <div>
+//     <i className="fa fa-refresh fa-spin fa-3x fa-fw loadingProducts"></i><h3 className="loadingProducts">Loading Products ...</h3>
+//   </div>
+//
+// }

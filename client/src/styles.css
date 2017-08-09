@@ -15,38 +15,35 @@
 .productsCard {
     border: 3px black solid;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
-    flex-wrap: wrap;
     display: flex;
     width: 33%;
     margin: 10px 10px;
 }
 
-.productsCard:hover {
-    background-color: beige;
-    background-position: 100% 100%;
-    animation: up-bump 0.4s ease;
+.productItem {
+    display: flex;
+    justify-content: center;
 }
 
-@keyframes up-bump {
-  0% { padding-top: 2em; }
-  50% { padding-top: 1.5em; }
-  100% { padding-top: 2em; }
-}
-@keyframes down-bump {
-  0% { padding-top: 2em; }
-  50% { padding-top: 2.5em; }
-  100% { padding-top: 2em; }
+.productsCard:hover {
+    background-color: beige;
 }
 
 img.productImage {
-    width: 300px;
+    width: 200px;
+    margin: auto;
+    display: block;
 }
 
 .navBar {
     display: flex;
     justify-content: space-around;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
 }
 
 .navBar li {

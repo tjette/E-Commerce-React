@@ -1,31 +1,18 @@
 import React from 'react';
+import ProductTile from './ProductTile';
 
 const Products = (props) => {
-
-  return(
+  console.log(props.products);
+  return (
     <div className="productsContainer">
-        {
-          props.productsData.map((product) => {
-            return(
-              <div className="productsCard">
-                <h3>Product: {product.productName}</h3>
-                <img className="productImage" src={product.img} />
-                <p> Price: {product.price}</p>
-                <p> Description: {product.description} </p>
-                <button className="btn btn-default">Buy</button>
+    {
+      props.products.map((product) =>
+          <div className="productsCard">
+            <ProductTile product={product} addItem={props.addItem} />
+          </div>
 
-                <div className="well">
-                  <span className="rating"></span>
-                  <span className="star"></span>
-                  <span className="star"></span>
-                  <span className="star"></span>
-                  <span className="star"></span>
-                  <span className="star"></span>
-                </div>
-              </div>
-            )
-          })
-        }
+      )
+    }
     </div>
   )
 }
