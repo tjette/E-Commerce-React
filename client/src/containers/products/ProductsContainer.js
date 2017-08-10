@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../Layout'
-import {Products, ProductSearch} from '../../components'
+import {Products, ProductSearch, CartDisplay} from '../../components'
 
 import faker from 'faker';
 
@@ -24,7 +24,7 @@ class ProductsContainer extends React.Component {
     const tempCart = this.state.cart;
     tempCart.push(product);
     this.setState({cart: tempCart});
-    alert(`${product.productName} was added to your cart`)
+    // alert(`${product.productName} was added to your cart`)
 
   }
 
@@ -32,7 +32,10 @@ class ProductsContainer extends React.Component {
     const cartItems = this.state.cart;
     cartItems.splice(0,cartItems.length);
     this.setState({cart: cartItems});
-    console.log(cartItems, cartItems.length);
+  }
+
+  grandTotal = () => {
+    const cartItems = this.state.cart
   }
 
 
@@ -70,7 +73,7 @@ class ProductsContainer extends React.Component {
     return (
       <div className="">
             <Layout products={this.state.products} emptyCart={this.emptyCart} addItem={this.addItem} cart={this.state.cart}/>
-
+            
       </div>
     )
   }
