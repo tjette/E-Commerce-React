@@ -1,29 +1,42 @@
 import React, { Component } from 'react';
 import './App.css';
 import {NavBar} from './components';
-import {HomeContainer, AboutContainer, ShopContainer} from './containers'
-import Products from './components/products/Products';
-import CartDisplay from './components/cart/CartDisplay';
+import {HomeContainer, AboutContainer} from './containers'
+import {Products, Cart, Profile} from './components';
 import {Route, Switch} from 'react-router-dom'
 
 
 
-class Layout extends Component {
+const Layout = (props) => {
 
-  render() {
-    console.log(this.props.cart);
     return (
 
       <div>
-        <NavBar emptyCart={this.props.emptyCart} cartCount = {this.props.cart.length}/>
-        <CartDisplay cart={this.props.cart} />
-
-              <div>
+        <NavBar emptyCart={props.emptyCart} cartCount={props.cart.length} totalPrice={props.totalPrice}/>
+          <div>
               <Switch>
               <Route exact path="/" component={HomeContainer}/>
               <Route path ='/my-about-page' component={AboutContainer}/>
-              <Route path="/my-shop-page" component={ShopContainer}/>
-              <Route path='/products' render={() => <Products products={this.props.products}  addItem={this.props.addItem} />}/>
+              <Route
+                path='/products'
+                render={() =>
+                <Products
+                  products={props.products}
+                  addItem={props.addItem} />}/>
+              <Route
+                path="/cart"
+                render={() =>
+                <Cart
+                  cart={props.cart}
+                  totalPrice={props.totalPrice}/>}/>
+                <Route
+                path="/profile"
+                render={() =>
+                <Profile
+                  user={props.user}
+                />}
+                />
+
               </Switch>
             </div>
 
@@ -31,6 +44,5 @@ class Layout extends Component {
       </div>
     );
   }
-}
 
 export default Layout;

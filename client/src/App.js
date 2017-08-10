@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {ProductsContainer} from './containers'
+import {DataProvider} from './containers'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 
@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
         <Router>
-          <ProductsContainer />
+          <DataProvider />
         </Router>
 
     );

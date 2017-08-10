@@ -19,9 +19,10 @@ const NavBar = (props) => {
       <ul className="navBar">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/my-about-page">About</Link></li>
-        <li><Link to="/my-shop-page">Shop</Link></li>
         <li><Link to="products">Products</Link></li>
-        <li><h1> {props.cartCount} </h1> </li>
+        <li><Link to="cart">Cart</Link>{props.cartCount}</li>
+        <li><p> Total: {props.totalPrice} </p> </li>
+        <li><Link to="profile">Profile</Link></li>
       </ul>
       <div><button className="emptyCart pull-right" onClick={() => props.emptyCart(props.cartCount) }>Empty Cart</button></div>
       </nav>

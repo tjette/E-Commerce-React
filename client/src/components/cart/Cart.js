@@ -1,26 +1,25 @@
 import React from 'react';
+import CartTile from './CartTile';
 
-const CartDisplay = (props) => {
+const Cart = (props) => {
   return(
     <div>
     <h1>CART</h1>
+    <h3>${props.totalPrice}</h3>
+    <div>
     {
 
-      props.cart.map((item) =>
-        <div>
+      props.cart.map((item, index) => <CartTile item={item} key={index}  />)
 
-          <h3>Product Name: {item.productName}</h3>
-          <h3>Price: {item.price}</h3>
-        </div>
-
-      )
     }
+
+    </div>
     </div>
 
   )
 }
 
-export default CartDisplay;
+export default Cart;
 
 // <div className="productsContainer">
 // {

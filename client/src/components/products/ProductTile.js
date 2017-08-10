@@ -6,10 +6,10 @@ const ProductTile = (props) => {
   return (
     <div className="">
       <div className="">
-        <h3 className="productItem">Product: {product.productName}</h3>
+        <h3 className="productItem productName">Product: {product.productName}</h3>
         <img className="productImage" src={product.img} />
-        <p className="productItem"> Price: {product.price}</p>
-        <p className="productItem"> Description: {product.description} </p>
+        <p className="productItem price"> Price: {product.price}</p>
+        <p className="productItem description"> Description: {product.description} </p>
         <button className="productItem btn btn-default" onClick={() => props.addItem(product)}>Add Item</button>
       </div>
         <div className="well">

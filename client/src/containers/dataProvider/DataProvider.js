@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from '../../Layout'
-import {Products, ProductSearch, CartDisplay} from '../../components'
+import {Products, ProductSearch} from '../../components'
 
 import faker from 'faker';
 
 const categoryData = ['Outdoor', 'Technology', 'Books', 'Clothing'];
 
-class ProductsContainer extends React.Component {
+class DataProvider extends React.Component {
 
   state = {
     productName: undefined,
@@ -15,7 +15,10 @@ class ProductsContainer extends React.Component {
     description: undefined,
     products: [],
     categories: undefined,
-    cart: []
+    cart: [],
+    user: undefined,
+    isDataLoaded: true
+
   }
 
   // buyProduct= this.buyProduct.bind(this);
@@ -46,10 +49,23 @@ class ProductsContainer extends React.Component {
   componentDidMount(){
     this.getProducts();
     this.getCategories();
+    this.createUser();
   }
+
+  createUser = () => {
+    const user = {
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar()
+    }
+    this.setState({user: user});
+  }
+
   getCategories =() => {
     this.setState({categories: categoryData});
   }
+
   getProducts = () => {
 
     const productsArray = [];
@@ -70,16 +86,33 @@ class ProductsContainer extends React.Component {
 
   }
   render(){
+    let totalPrice = 0;
+
+    for(let i=0; i< this.state.cart.length; i++) {
+      totalPrice += parseFloat(this.state.cart[i].price);
+    }
+
     return (
       <div className="">
-            <Layout products={this.state.products} emptyCart={this.emptyCart} addItem={this.addItem} cart={this.state.cart}/>
-            
+          {
+            this.state.isDataLoaded ?
+            <Layout
+              products={this.state.products}
+              emptyCart={this.emptyCart}
+              addItem={this.addItem}
+              cart={this.state.cart}
+              totalPrice={totalPrice.toFixed(2)}
+              user={this.state.user}
+
+            />
+            : <h3>Data is being loaded</h3>
+          }
       </div>
     )
   }
 }
 
-export default ProductsContainer;
+export default DataProvider;
 
 // {
 //   this.state.categories
