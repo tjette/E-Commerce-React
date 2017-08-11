@@ -6,6 +6,7 @@ const Cart = (props) => {
     <div className="">
     <h1 className="cartHeader">CART</h1>
     <h3 className="cartTotalPrice">${props.totalPrice}</h3>
+    <div><button className="cartEmpty" onClick={() => props.emptyCart(props.cartCount) }>Empty Cart</button></div>
     <div className="cartContainer">
     {
 

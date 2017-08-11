@@ -24,7 +24,7 @@ const NavBar = (props) => {
         <li><p className="navTotalPrice"> Total: {props.totalPrice} </p> </li>
         <li><Link to="profile">Profile</Link></li>
       </ul>
-      <div><button className="emptyCart pull-right" onClick={() => props.emptyCart(props.cartCount) }>Empty Cart</button></div>
+      <div><button type="button" className="btn btn-primary emptyCart pull-right" onClick={() => props.emptyCart(props.cartCount) }>Empty Cart</button></div>
       </nav>
 
     </div>

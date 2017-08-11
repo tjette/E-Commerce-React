@@ -14,13 +14,16 @@
 
 .productsCard {
     border: 3px black solid;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-align: center;
     align-items: center;
+    display: -ms-flexbox;
     display: flex;
     width: 33%;
     margin: 10px 10px;
+    box-shadow: 4px -10px 30px black
 }
-
 .productItem {
     display: flex;
     justify-content: center;
@@ -88,4 +91,21 @@ h3.cartTotalPrice {
 
 img.cartImage {
     width: 300px;
+}
+button.cartEmpty {
+    display: block;
+    margin: auto;
+}
+button.productItem.btn.btn-default {
+    display: block;
+    margin: auto;
+}
+h1.productHeader {
+    text-align: center;
+    font-size: 50px;
+    background-color: cadetblue;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

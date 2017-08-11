@@ -16,75 +16,63 @@ class DataProvider extends React.Component {
     products: [],
     categories: undefined,
     cart: [],
-    user: undefined,
+    user: [],
     isDataLoaded: true
 
   }
 
   // buyProduct= this.buyProduct.bind(this);
 
-  addItem = (product) => {
-    const tempCart = this.state.cart;
-    tempCart.push(product);
-    this.setState({cart: tempCart});
+addItem = (product) => {
+  const tempCart = this.state.cart;
+  tempCart.push(product);
+  this.setState({cart: tempCart});
     // alert(`${product.productName} was added to your cart`)
+}
 
+emptyCart = () => {
+  const cartItems = this.state.cart;
+  cartItems.splice(0,cartItems.length);
+  this.setState({cart: cartItems});
+}
+
+onCategorySelected = (event) => this.setState({selectedCategory: event.target.value})
+
+componentDidMount(){
+  this.getProducts();
+  this.getCategories();
+  this.createUser();
+}
+
+createUser = () => {
+  const user = {
+  firstName: faker.name.firstName(),
+  lastName: faker.name.lastName(),
+  email: faker.internet.email(),
+  avatar: faker.internet.avatar()
   }
+  this.setState({user: user});
+}
 
-  emptyCart = () => {
-    const cartItems = this.state.cart;
-    cartItems.splice(0,cartItems.length);
-    this.setState({cart: cartItems});
+getCategories =() => {
+  this.setState({categories: categoryData});
+}
+
+getProducts = () => {
+  const productsArray = [];
+  for(var i=0; i<20; i++) {
+    productsArray.push({
+      productName: faker.commerce.productName(),
+      img: faker.random.image(),
+      price: faker.commerce.price(),
+      description: faker.lorem.sentence()
+    })
   }
-
-  grandTotal = () => {
-    const cartItems = this.state.cart
-  }
-
-
-
-
-  onCategorySelected = (event) => this.setState({selectedCategory: event.target.value})
-
-  componentDidMount(){
-    this.getProducts();
-    this.getCategories();
-    this.createUser();
-  }
-
-  createUser = () => {
-    const user = {
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    email: faker.internet.email(),
-    avatar: faker.internet.avatar()
-    }
-    this.setState({user: user});
-  }
-
-  getCategories =() => {
-    this.setState({categories: categoryData});
-  }
-
-  getProducts = () => {
-
-    const productsArray = [];
-
-    for(var i=0; i<20; i++) {
-      productsArray.push({
-        productName: faker.commerce.productName(),
-        img: faker.random.image(),
-        price: faker.commerce.price(),
-        description: faker.lorem.sentence()
-
-      })
-    }
-    setTimeout(() => {
-
+  setTimeout(() => {
     this.setState({products: productsArray})
   }, 3000)
+}
 
-  }
   render(){
     let totalPrice = 0;
 
@@ -94,19 +82,18 @@ class DataProvider extends React.Component {
 
     return (
       <div className="">
-          {
-            this.state.isDataLoaded ?
-            <Layout
-              products={this.state.products}
-              emptyCart={this.emptyCart}
-              addItem={this.addItem}
-              cart={this.state.cart}
-              totalPrice={totalPrice.toFixed(2)}
-              user={this.state.user}
-
+        {
+          this.state.isDataLoaded ?
+          <Layout
+            products={this.state.products}
+            emptyCart={this.emptyCart}
+            addItem={this.addItem}
+            cart={this.state.cart}
+            totalPrice={totalPrice.toFixed(2)}
+            user={this.state.user}
             />
             : <h3>Data is being loaded</h3>
-          }
+        }
       </div>
     )
   }

@@ -27,6 +27,7 @@ const Layout = (props) => {
                 path="/cart"
                 render={() =>
                 <Cart
+                  emptyCart={props.emptyCart}
                   cart={props.cart}
                   totalPrice={props.totalPrice}/>}/>
                 <Route
