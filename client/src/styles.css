@@ -55,7 +55,37 @@ img.productImage {
     margin: 10px 10px;
     padding: 10px 0px;
 }
+a.cartCountLi {
+    margin-right: 10px;
+}
+p.navTotalPrice {
+    margin-top: 0px;
+    margin-left: -100px;
+}
 
 .emptyCart {
-    margin: -40px 80px;
+    margin: -35px 331px;
+}
+
+.cartContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.cartItem {
+    display: flex;
+    width: 33%;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+h1.cartHeader {
+    text-align: center;
+}
+h3.cartTotalPrice {
+    text-align: center;
+}
+
+img.cartImage {
+    width: 300px;
 }

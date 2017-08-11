@@ -3,10 +3,10 @@ import CartTile from './CartTile';
 
 const Cart = (props) => {
   return(
-    <div>
-    <h1>CART</h1>
-    <h3>${props.totalPrice}</h3>
-    <div>
+    <div className="">
+    <h1 className="cartHeader">CART</h1>
+    <h3 className="cartTotalPrice">${props.totalPrice}</h3>
+    <div className="cartContainer">
     {
 
       props.cart.map((item, index) => <CartTile item={item} key={index}  />)
