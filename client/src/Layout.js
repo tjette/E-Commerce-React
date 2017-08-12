@@ -29,7 +29,8 @@ const Layout = (props) => {
                 <Cart
                   emptyCart={props.emptyCart}
                   cart={props.cart}
-                  totalPrice={props.totalPrice}/>}/>
+                  totalPrice={props.totalPrice}
+                  cartCount={props.cart.length}/>}/>
                 <Route
                 path="/profile"
                 render={() =>

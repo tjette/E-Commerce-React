@@ -4,8 +4,19 @@ import CartTile from './CartTile';
 const Cart = (props) => {
   return(
     <div className="">
-    <h1 className="cartHeader">CART</h1>
-    <h3 className="cartTotalPrice">${props.totalPrice}</h3>
+    {
+
+      props.cartCount > 0 ?
+        <div>
+        <h1 className="cartHeader">CART</h1>
+        <h3 className="cartTotalPrice">${props.totalPrice}</h3>
+        </div>
+        :
+        <div>
+        <h1 className="cartEmpty"> CART IS EMPTY</h1>
+        </div>
+
+    }
     <div><button className="cartEmpty" onClick={() => props.emptyCart(props.cartCount) }>Empty Cart</button></div>
     <div className="cartContainer">
     {
