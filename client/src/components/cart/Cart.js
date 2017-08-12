@@ -5,7 +5,6 @@ const Cart = (props) => {
   return(
     <div className="">
     {
-
       props.cartCount > 0 ?
         <div>
         <h1 className="cartHeader">CART</h1>
@@ -15,7 +14,6 @@ const Cart = (props) => {
         <div>
         <h1 className="cartEmpty"> CART IS EMPTY</h1>
         </div>
-
     }
     <div><button className="cartEmpty" onClick={() => props.emptyCart(props.cartCount) }>Empty Cart</button></div>
     <div className="cartContainer">

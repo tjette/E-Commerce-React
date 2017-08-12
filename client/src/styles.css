@@ -112,3 +112,11 @@ h1.productHeader {
 h1.cartEmpty {
     text-align: center;
 }
+h1.profileHeader {
+    text-align: center;
+    background-color: cadetblue;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
