@@ -8,7 +8,7 @@ const Cart = (props) => {
       props.cartCount > 0 ?
         <div>
         <h1 className="cartHeader">CART</h1>
-        <h3 className="cartTotalPrice">${props.totalPrice}</h3>
+        <h3 className="cartTotalPrice">Total: ${props.totalPrice}</h3>
         </div>
         :
         <div>
@@ -19,7 +19,7 @@ const Cart = (props) => {
     <div className="cartContainer">
     {
 
-      props.cart.map((item, index) => <CartTile item={item} key={index}  />)
+      props.cart.map((item, index) => <CartTile item={item} index={index} />)
 
     }
 

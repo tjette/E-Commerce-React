@@ -2,7 +2,6 @@ import React from 'react';
 import ProductTile from './ProductTile';
 
 const Products = (props) => {
-  console.log(props.products);
   return (
     <div>
     <div className="productHeaderDiv">

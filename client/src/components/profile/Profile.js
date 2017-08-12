@@ -6,10 +6,10 @@ const Profile = (props) => {
       <div className="">
         <h1 className="profileHeader">Profile</h1>
       </div>
-        <h3 className="profileFirstName">First Name:{props.user.firstName}</h3>
-        <h3 className="profileLastName">Last Name:{props.user.lastName}</h3>
-        <h3 className="profileEmail">Email:{props.user.email}</h3>
         <img className="profileImage" src={props.user.avatar}/>
+        <h3 className="profileFirstName">Name:{props.user.firstName} {props.user.lastName}</h3>
+        <h3 className="profileEmail">Email:{props.user.email}</h3>
+
       </div>
     )
   }
