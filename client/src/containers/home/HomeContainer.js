@@ -14,7 +14,7 @@ class HomeContainer extends Component {
   getTitle = () => {
 
     setTimeout(() => {
-      this.setState({title: "This is home containers title"})
+      this.setState({title: "E-Commerce-React"})
     }, 3000)
   }
   render() {
@@ -23,7 +23,11 @@ class HomeContainer extends Component {
         {
           this.state.title
           ? <Home title={this.state.title} />
-          : <h1>No state yet from home title</h1>
+          :
+          <div>
+            <i className="homeLoadingIcon fa fa-refresh fa-spin fa-3x fa-fw"></i><h3 className="homeLoadingIcon">Loading</h3>
+
+          </div>
         }
 
       </div>

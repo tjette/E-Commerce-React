@@ -6,9 +6,10 @@ const CartTile = (props) => {
   return (
     <div className="cartItem">
       <p>{props.index + 1}</p>
-      <h3 className="cartProduct">Product Name: {item.productName}</h3>
-      <h3 className="cartPrice">Price: {item.price}</h3>
+      <h3 className="cartProduct">{item.productName}</h3>
       <img className="cartImage" src={item.img} />
+      <h3 className="cartPrice">${item.price}</h3>
+
     </div>
 
   )

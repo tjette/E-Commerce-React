@@ -1,9 +1,23 @@
-.loadingProducts{
+body{
+  background-color: indianred;
+}
+
+.loadingProducts, .homeLoadingIcon{
   text-align: center;
   margin: auto;
   display: block;
 }
+.bodyHome {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
 
+h1.homeTitle {
+    text-align: center;
+}
 .productsContainer {
     display: flex;
     justify-content: center;
@@ -81,6 +95,12 @@ p.navTotalPrice {
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
+}
+table.cartTable.table.table-bordered {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 h1.cartHeader {
     text-align: center;
