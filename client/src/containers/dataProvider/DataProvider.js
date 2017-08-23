@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Layout from '../../Layout'
 import {Products, ProductSearch} from '../../components'
 
@@ -6,7 +6,7 @@ import faker from 'faker';
 
 const categoryData = ['Outdoor', 'Technology', 'Books', 'Clothing'];
 
-class DataProvider extends React.Component {
+class DataProvider extends Component {
 
   state = {
     productName: undefined,
