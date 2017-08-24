@@ -12,6 +12,16 @@ const ProductTile = (props) => {
         <p className="productItem description"> Description: {product.description} </p>
         <div><button className="productItem btn btn-default" onClick={() => props.addItem(product)}>Add Item</button></div>
       </div>
+      <div>
+        <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+
+        </select>
+      </div>
         <div className="well">
           <span className="rating"></span>
           <span className="star"></span>

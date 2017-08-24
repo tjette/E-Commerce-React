@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {NavBar} from './components';
-import {HomeContainer, AboutContainer} from './containers'
+import {HomeContainer, AboutContainer, SubmitProductContainer} from './containers'
 import {Products, Cart, Profile} from './components';
 import {Route, Switch} from 'react-router-dom'
 
@@ -23,6 +23,7 @@ const Layout = (props) => {
                 <Products
                   products={props.products}
                   addItem={props.addItem}
+                  addQuantity={props.addQuantity}
                   cart={props.cart}/>}/>
               <Route
                 path="/cart"
@@ -38,6 +39,11 @@ const Layout = (props) => {
                 <Profile
                   user={props.user}
                 />}
+                />
+                <Route
+                path='/submitProduct'
+                render={() =>
+                <SubmitProductContainer onChange={props.onChange}/> }
                 />
 
               </Switch>

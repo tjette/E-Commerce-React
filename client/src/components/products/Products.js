@@ -11,7 +11,7 @@ const Products = (props) => {
     {
       props.products.map((product) =>
           <div className="productsCard">
-            <ProductTile product={product} addItem={props.addItem} />
+            <ProductTile product={product} addItem={props.addItem} addQuantity={props.addQuantity} />
           </div>
 
       )

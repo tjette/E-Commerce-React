@@ -4,8 +4,6 @@ import {Products, ProductSearch} from '../../components'
 
 import faker from 'faker';
 
-const categoryData = ['Outdoor', 'Technology', 'Books', 'Clothing'];
-
 class DataProvider extends Component {
 
   state = {
@@ -13,15 +11,16 @@ class DataProvider extends Component {
     img: undefined,
     price: undefined,
     description: undefined,
-    products: [],
-    categories: undefined,
+    product: {
+      name: undefined,
+      price: undefined,
+      image: undefined
+    },
     cart: [],
     user: [],
     isDataLoaded: true
 
   }
-
-  // buyProduct= this.buyProduct.bind(this);
 
 addItem = (product) => {
   const tempCart = this.state.cart;
@@ -36,11 +35,15 @@ emptyCart = () => {
   this.setState({cart: cartItems});
 }
 
-onCategorySelected = (event) => this.setState({selectedCategory: event.target.value})
+onChange = (type, value) => {
+  const newProduct = this.state.product
+  newProduct[type] = value
+  this.setState({product: newProduct})
+  console.log(this.state.product)
+}
 
 componentDidMount(){
   this.getProducts();
-  this.getCategories();
   this.createUser();
 }
 
@@ -52,10 +55,6 @@ createUser = () => {
   avatar: faker.internet.avatar()
   }
   this.setState({user: user});
-}
-
-getCategories =() => {
-  this.setState({categories: categoryData});
 }
 
 getProducts = () => {
@@ -91,6 +90,7 @@ getProducts = () => {
             cart={this.state.cart}
             totalPrice={totalPrice.toFixed(2)}
             user={this.state.user}
+            onChange={this.onChange}
             />
             : <h3>Data is being loaded</h3>
         }
@@ -100,25 +100,3 @@ getProducts = () => {
 }
 
 export default DataProvider;
-
-// {
-//   this.state.categories
-//   ? <ProductSearch onCategorySelected={this.onCategorySelected}
-//                categories={this.state.categories}
-// /> :
-// <h3>Loading Categories</h3>
-// }
-//
-// {
-//
-//   this.state.products
-//   ? <Products products={this.state.products}
-//               addItem = {this.addToCart}
-//               cart = {this.state.cart}
-//   />
-//   :
-//   <div>
-//     <i className="fa fa-refresh fa-spin fa-3x fa-fw loadingProducts"></i><h3 className="loadingProducts">Loading Products ...</h3>
-//   </div>
-//
-// }
