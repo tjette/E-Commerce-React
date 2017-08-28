@@ -1,26 +1,37 @@
 import React, {Component} from 'react';
 import Layout from '../../Layout'
 import {Products, ProductSearch} from '../../components'
+import $ from 'jquery'
 
 import faker from 'faker';
 
 class DataProvider extends Component {
 
   state = {
-    productName: undefined,
-    img: undefined,
-    price: undefined,
-    description: undefined,
-    product: {
-      name: undefined,
-      price: undefined,
-      image: undefined
-    },
+    quantitySelected: 1,
+    product: {},
+    products: [],
     cart: [],
     user: [],
     isDataLoaded: true
 
   }
+
+submitProduct = (event) => {
+  event.preventDefault()
+   $.ajax({
+     url: '/api/products',
+     method: 'POST',
+     data: this.state.product
+   }).done((response) => {
+
+     const newProducts = this.state.products
+     newProducts.push(response.data)
+     this.setState({products: newProducts})
+   }
+   )
+  console.log(this.state.product)
+}
 
 addItem = (product) => {
   const tempCart = this.state.cart;
@@ -42,8 +53,16 @@ onChange = (type, value) => {
   console.log(this.state.product)
 }
 
+onQuantityChanged = (event) => this.setState({quantitySelected: event.target.value})
+
 componentDidMount(){
-  this.getProducts();
+  $.ajax({
+    url: 'api/products',
+    method: 'GET',
+  }).done((response) => {
+    console.log(response)
+    this.setState({products: response.data})
+  })
   this.createUser();
 }
 
@@ -56,22 +75,6 @@ createUser = () => {
   }
   this.setState({user: user});
 }
-
-getProducts = () => {
-  const productsArray = [];
-  for(var i=0; i<20; i++) {
-    productsArray.push({
-      productName: faker.commerce.productName(),
-      img: faker.random.image(),
-      price: faker.commerce.price(),
-      description: faker.lorem.sentence()
-    })
-  }
-  setTimeout(() => {
-    this.setState({products: productsArray})
-  }, 3000)
-}
-
   render(){
     let totalPrice = 0;
 
@@ -91,6 +94,8 @@ getProducts = () => {
             totalPrice={totalPrice.toFixed(2)}
             user={this.state.user}
             onChange={this.onChange}
+            onQuantityChanged= {this.onQuantityChanged}
+            submitProduct={this.submitProduct}
             />
             : <h3>Data is being loaded</h3>
         }

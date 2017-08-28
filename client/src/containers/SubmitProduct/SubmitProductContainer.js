@@ -5,7 +5,7 @@ class SubmitProductContainer extends Component {
   render() {
     return (
       <div>
-        <SubmitProduct onChange={this.props.onChange} />
+        <SubmitProduct onChange={this.props.onChange} submitProduct={this.props.submitProduct} products={this.props.products} />
       </div>
 
     )

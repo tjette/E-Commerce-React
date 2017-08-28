@@ -11,7 +11,7 @@ const Products = (props) => {
     {
       props.products.map((product) =>
           <div className="productsCard">
-            <ProductTile product={product} addItem={props.addItem} addQuantity={props.addQuantity} />
+            <ProductTile product={product} addItem={props.addItem} onQuantityChanged={props.onQuantityChanged} />
           </div>
 
       )

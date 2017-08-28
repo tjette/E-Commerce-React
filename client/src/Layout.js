@@ -24,6 +24,7 @@ const Layout = (props) => {
                   products={props.products}
                   addItem={props.addItem}
                   addQuantity={props.addQuantity}
+                  onQuantityChanged={props.onQuantityChanged}
                   cart={props.cart}/>}/>
               <Route
                 path="/cart"
@@ -43,7 +44,10 @@ const Layout = (props) => {
                 <Route
                 path='/submitProduct'
                 render={() =>
-                <SubmitProductContainer onChange={props.onChange}/> }
+                <SubmitProductContainer
+                onChange={props.onChange}
+                submitProduct={props.submitProduct}
+                products={props.products}/> }
                 />
 
               </Switch>
