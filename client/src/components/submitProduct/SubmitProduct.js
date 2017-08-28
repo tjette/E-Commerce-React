@@ -11,12 +11,14 @@ const SubmitProduct = (props) => {
         <label>Image</label>
         <input type="text" onChange={(event) => props.onChange('image', event.target.value) }/>
         <button className="submitProductButton" type="submit">Submit Product</button>
+
       </form>
       <div className="productsContainer">
       {
         props.products.map((product) =>
             <div className="productsCard">
               <ProductTile product={product} addItem={props.addItem} onQuantityChanged={props.onQuantityChanged} />
+              <button className="editProduct" onClick={(event) => props.editProduct(event, product._id)} type="submit">Edit Product</button>
             </div>
 
         )

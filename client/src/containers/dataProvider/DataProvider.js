@@ -17,6 +17,16 @@ class DataProvider extends Component {
 
   }
 
+editProduct = (event, id) => {
+  event.preventDefault()
+  $.ajax({
+    url: 'api/products/' + id,
+    method: 'PUT',
+    data: this.state.product
+  }).done((response) => {
+    console.log(response)
+  })
+}
 submitProduct = (event) => {
   event.preventDefault()
    $.ajax({
@@ -96,6 +106,7 @@ createUser = () => {
             onChange={this.onChange}
             onQuantityChanged= {this.onQuantityChanged}
             submitProduct={this.submitProduct}
+            editProduct={this.editProduct}
             />
             : <h3>Data is being loaded</h3>
         }

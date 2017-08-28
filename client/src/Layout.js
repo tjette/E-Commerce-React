@@ -47,6 +47,7 @@ const Layout = (props) => {
                 <SubmitProductContainer
                 onChange={props.onChange}
                 submitProduct={props.submitProduct}
+                editProduct={props.editProduct}
                 products={props.products}/> }
                 />
 
