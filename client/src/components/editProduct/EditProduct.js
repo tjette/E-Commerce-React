@@ -10,7 +10,7 @@ const EditProduct = (props) => {
           <input type="number" defaultValue={props.product.price}/>
           <label>Image</label>
           <input type="text" defaultValue={props.product.image}/>
-          <button className="editProduct" onClick={(event) => props.editProduct(event, props.product._id)} type="submit">Edit Product</button>
+          <button className="editProduct" onSubmit={(event) => props.editProduct(event, props.product._id)} type="submit">Edit Product</button>
         </form>
     </div>
   )

@@ -24,7 +24,9 @@ editProduct = (event, id) => {
     method: 'PUT',
     data: this.state.product
   }).done((response) => {
-    console.log(response)
+    const newProducts = this.state.products
+    newProducts.push(response.data)
+    this.setState({products: newProducts})
   })
 }
 submitProduct = (event) => {
