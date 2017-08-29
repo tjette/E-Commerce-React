@@ -8,7 +8,7 @@ console.log(props);
     <div className="">
       <div className="">
         <h3 className="productItem productName">{product.name}</h3>
-        <img className="product Item productImage" src={product.image} />
+        <img className="product Item productImage" src={product.im} />
         <p className="productItem price"> Price: {product.price} </p>
         <p className="productItem description"> Description: {product.description} </p>
         <div><button className="productItem btn btn-default" onClick={() => props.addItem(product)}>Add Item</button></div>

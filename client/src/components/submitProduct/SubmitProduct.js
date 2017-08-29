@@ -1,32 +1,14 @@
 import React from 'react'
-import ProductTile from '../products/ProductTile'
+import EditProduct from '../editProduct/EditProduct'
 const SubmitProduct = (props) => {
   return (
     <div className="">
-      <form className="submitProduct" onSubmit={props.submitProduct} >
-        <label>Product Name</label>
-        <input type="text" onChange={(event) => props.onChange('name', event.target.value) }/>
-        <label>Product Price</label>
-        <input type="number" onChange={(event) => props.onChange('price', event.target.value) }/>
-        <label>Image</label>
-        <input type="text" onChange={(event) => props.onChange('image', event.target.value) }/>
-        <button className="submitProductButton" type="submit">Submit Product</button>
-
-      </form>
-      <div className="productsContainer">
       {
         props.products.map((product) =>
-            <div className="productsCard">
-              <ProductTile product={product} addItem={props.addItem} onQuantityChanged={props.onQuantityChanged} />
-              <button className="editProduct" onClick={(event) => props.editProduct(event, product._id)} type="submit">Edit Product</button>
-            </div>
-
+          <EditProduct product={product} editProduct={props.editProduct} />
         )
       }
-      </div>
-
     </div>
-
   )
 }
 
