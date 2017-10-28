@@ -38,6 +38,21 @@ Router.route('/:product_id')
       }
     })
   })
+  .put((req, res) => {
+    Product.findById(req.params.product_id, (err, product) => {
+
+      product.name = req.body.name
+      product.price = req.body.price
+      product.image = req.body.image
+
+      if (err) {
+        res.json({ message: err, data: null})
+      } else {
+        product.save()
+        res.json({message: "product updated", data: product})
+      }
+    })
+  })
   .delete((req,res) => {
     Product.remove({_id: req.params.product_id}, (err) => {
       if (err) {
